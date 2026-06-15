@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-01-22 10:43+0000\n"
+"PO-Revision-Date: 2025-01-16 16:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -14,30 +14,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #. module: attachment_queue
 #: model:mail.template,body_html:attachment_queue.attachment_failure_notification
 msgid ""
 "\n"
-"                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Hello,<br><br></p>\n"
-"                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">The attachment ${object.name} has failed with the following error message : <br>${object.state_message}<br></p><p style=\"margin:0px 0px 10px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"></p>\n"
-"                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Regards,<br></p>\n"
+"                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-"
+"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"
+"\">Hello,<br><br></p>\n"
+"                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-"
+"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"
+"\">The attachment ${object.name} has failed with the following error "
+"message : <br>${object.state_message}<br></p><p style=\"margin:0px 0px 10px "
+"0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, "
+"Verdana, Arial, sans-serif;\"></p>\n"
+"                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-"
+"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"
+"\">Regards,<br></p>\n"
 "            "
 msgstr ""
 "\n"
 "                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-"
-"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\""
-">Salce,<br><br></p>\n"
+"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"
+"\">Salce,<br><br></p>\n"
 "                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-"
-"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\""
-">l'allegato ${object.name} ha un errore con il segente messaggio : "
-"<br>${object.state_message}<br></p><p style=\"margin:0px 0px 10px 0px;font-"
+"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"
+"\">l'allegato ${object.name} ha un errore con il segente messaggio : <br>"
+"${object.state_message}<br></p><p style=\"margin:0px 0px 10px 0px;font-"
 "size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, "
 "sans-serif;\"></p>\n"
 "                <p style=\"margin:0px 0px 10px 0px;font-size:13px;font-"
-"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\""
-">Saluti,<br></p>\n"
+"family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;"
+"\">Saluti,<br></p>\n"
 "            "
 
 #. module: attachment_queue
@@ -69,6 +78,12 @@ msgstr "Stato attività"
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__activity_type_icon
 msgid "Activity Type Icon"
 msgstr "Icona tipo attività"
+
+#. module: attachment_queue
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__assigned_attachment_ids
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue_reschedule__assigned_attachment_ids
+msgid "Assigned Attachments"
+msgstr "Allegati assegnati"
 
 #. module: attachment_queue
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__attachment_id
@@ -119,6 +134,18 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #. module: attachment_queue
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__changeset_change_ids
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue_reschedule__changeset_change_ids
+msgid "Changeset Changes"
+msgstr "Modifiche dell'insieme di modifiche"
+
+#. module: attachment_queue
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__changeset_ids
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue_reschedule__changeset_ids
+msgid "Changesets"
+msgstr "Insiemi di modifiche"
+
+#. module: attachment_queue
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__checksum
 msgid "Checksum/SHA1"
 msgstr "Checksum/SHA1"
@@ -135,6 +162,24 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:attachment_queue.view_attachment_queue_search
 msgid "Company"
 msgstr "Azienda"
+
+#. module: attachment_queue
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__count_changesets
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue_reschedule__count_changesets
+msgid "Count Changesets"
+msgstr "Conta insiemi di modifiche"
+
+#. module: attachment_queue
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__count_pending_changeset_changes
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue_reschedule__count_pending_changeset_changes
+msgid "Count Pending Changeset Changes"
+msgstr "Conteggio modifiche dell'insieme di modifiche in attesa"
+
+#. module: attachment_queue
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__count_pending_changesets
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue_reschedule__count_pending_changesets
+msgid "Count Pending Changesets"
+msgstr "Conteggio insieme di modifiche in attesa"
 
 #. module: attachment_queue
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__create_uid
@@ -194,7 +239,7 @@ msgstr "Fallito"
 #. module: attachment_queue
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__failure_emails
 msgid "Failure Emails"
-msgstr "E-mail errori"
+msgstr "E-mail fallite"
 
 #. module: attachment_queue
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__datas
@@ -204,7 +249,7 @@ msgstr "Contenuto file (base64)"
 #. module: attachment_queue
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__raw
 msgid "File Content (raw)"
-msgstr "Contenuto file (grezzo)"
+msgstr "Contenuto file (raw)"
 
 #. module: attachment_queue
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__file_size
@@ -524,9 +569,27 @@ msgid ""
 "The file type determines an import method to be used to parse and transform "
 "data before their import in ERP or an export"
 msgstr ""
-"Il tipo di file determina il metodo di importazine da utilizzare per "
+"Il tipo di file determina il metodo di importazione da utilizzare per "
 "elaborare e trasformare i dati prima dell'importazione nell'ERP o per "
 "l'esportazione"
+
+#. module: attachment_queue
+#: model:ir.model.fields,help:attachment_queue.field_attachment_queue__count_pending_changeset_changes
+#: model:ir.model.fields,help:attachment_queue.field_attachment_queue_reschedule__count_pending_changeset_changes
+msgid "The number of pending changes of this record"
+msgstr "Numero di modifiche di questo record in attesa"
+
+#. module: attachment_queue
+#: model:ir.model.fields,help:attachment_queue.field_attachment_queue__count_pending_changesets
+#: model:ir.model.fields,help:attachment_queue.field_attachment_queue_reschedule__count_pending_changesets
+msgid "The number of pending changesets of this record"
+msgstr "Numero di insiemi di modifiche in attesa di questo record"
+
+#. module: attachment_queue
+#: model:ir.model.fields,help:attachment_queue.field_attachment_queue__count_changesets
+#: model:ir.model.fields,help:attachment_queue.field_attachment_queue_reschedule__count_changesets
+msgid "The overall number of changesets of this record"
+msgstr "Numero totale di insiemi di modifiche di questo record"
 
 #. module: attachment_queue
 #: model_terms:ir.ui.view,arch_db:attachment_queue.view_reschedule_attachment
@@ -555,6 +618,12 @@ msgid "Url"
 msgstr "URL"
 
 #. module: attachment_queue
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__user_can_see_changeset
+#: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue_reschedule__user_can_see_changeset
+msgid "User Can See Changeset"
+msgstr "L'utente può vedere l'insieme delle modifiche"
+
+#. module: attachment_queue
 #: model:ir.model.fields,field_description:attachment_queue.field_attachment_queue__website_message_ids
 msgid "Website Messages"
 msgstr "Messaggi sito web"
@@ -580,7 +649,6 @@ msgstr ""
 
 #. module: attachment_queue
 #. odoo-python
-#: code:addons/attachment_queue/tests/test_models.py:0
 #: code:addons/attachment_queue/tests/test_models.py:0
 #, python-format
 msgid "boom"

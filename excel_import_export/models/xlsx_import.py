@@ -11,7 +11,7 @@ import xlrd
 import xlwt
 
 from odoo import _, api, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import UserError, ValidationError
 from odoo.tools.float_utils import float_compare
 from odoo.tools.safe_eval import safe_eval
 
@@ -44,7 +44,7 @@ class XLSXImport(models.AbstractModel):
     @api.model
     def get_external_id(self, record):
         """Get external ID of the record, if not already exists create one"""
-        ModelData = self.env["ir.model.data"]
+        ModelData = self.sudo().env["ir.model.data"]
         xml_id = record.get_external_id()
         if not xml_id or (record.id in xml_id and xml_id[record.id] == ""):
             ModelData.create(
@@ -61,7 +61,7 @@ class XLSXImport(models.AbstractModel):
     @api.model
     def _get_field_type(self, model, field):
         try:
-            record = self.env[model].new()
+            record = self.env[model].new({})
             for f in field.split("/"):
                 field_type = record._fields[f].type
                 if field_type in ("one2many", "many2many"):
@@ -107,7 +107,17 @@ class XLSXImport(models.AbstractModel):
             # Use max_row, i.e., order_line[5], use it. Otherwise, use st.nrows
             max_end_row = st.nrows if max_row is False else (row + max_row)
             for idx in range(row, max_row and max_end_row or st.nrows):
-                cell_type = st.cell_type(idx, col)  # empty type = 0
+                try:
+                    cell_type = st.cell_type(idx, col)  # empty type = 0
+                except Exception as e:
+                    raise UserError(
+                        _(
+                            "The value for the '%(field)s' field is expected to be "
+                            "in cell %(cell_position)s, but no column exists for that "
+                            "cell in the Excel sheet. Please check your Excel file."
+                        )
+                        % {"field": _col, "cell_position": rc}
+                    ) from e
                 r_types = test_rows.get(idx, [])
                 r_types.append(cell_type)
                 test_rows[idx] = r_types
@@ -280,7 +290,6 @@ class XLSXImport(models.AbstractModel):
         - Delete fields' data according to data_dict['__IMPORT__']
         - Import data from excel according to data_dict['__IMPORT__']
         """
-        self = self.sudo()
         if res_model and template.res_model != res_model:
             raise ValidationError(_("Template's model mismatch"))
         record = self.env[template.res_model].browse(res_id)
